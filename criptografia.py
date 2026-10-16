@@ -10,9 +10,11 @@ def cifrar(palavra, chave="artyom"):
 
     return resultado[1:] + resultado[0]
 
-def parOuImpar(palavra):
+def par_Mult5Imp_Impar(palavra):
     n = len(palavra)
     if (n % 2 == 0):
+        return True
+    elif (n % 5 == 0) and (n % 2 != 0) and (n != 5):
         return True
     return False
 
@@ -33,7 +35,7 @@ while 1:
     consoantes = "bcdfghjklmnpqrstvwxyz"
 
     for l in palavra:
-        if parOuImpar(palavra):
+        if par_Mult5Imp_Impar(palavra):
             if l.lower() in vogais:
                 vogaisOuConsoantes += l
         else:
