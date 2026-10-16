@@ -3,8 +3,8 @@ def cifrar(palavra, chave="artyom"):
     resultado = ""
 
     for i, l in enumerate(palavra):
-        letra_chave = chave[i % len(chave)]
-        deslocamento = ord(letra_chave) - ord("a")
+        letraChave = chave[i % len(chave)]
+        deslocamento = ord(letraChave) - ord("a")
         nova = (ord(l) - ord("a") + deslocamento) % 26
         resultado += chr(nova + ord("a"))
 
