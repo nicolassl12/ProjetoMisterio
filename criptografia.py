@@ -10,13 +10,16 @@ def cifrar(palavra, chave="artyom"):
 
     return resultado[1:] + resultado[0]
 
-def par_Mult5Imp_Impar(palavra):
-    n = len(palavra)
-    if (n % 2 == 0):
-        return True
-    elif (n % 5 == 0) and (n % 2 != 0) and (n != 5):
-        return True
-    return False
+def ehPrimo(n):
+    if n < 2:
+        return False
+    for d in range(2, n):
+        if n % d == 0:
+            return False
+    return True
+
+def mostraVogais(palavra):
+    return not ehPrimo(len(palavra))
 
 while 1: 
     palavra = input()
@@ -35,7 +38,7 @@ while 1:
     consoantes = "bcdfghjklmnpqrstvwxyz"
 
     for l in palavra:
-        if par_Mult5Imp_Impar(palavra):
+        if mostraVogais(palavra):
             if l.lower() in vogais:
                 vogaisOuConsoantes += l
         else:
@@ -45,7 +48,3 @@ while 1:
     cifrada = cifrar(palavra)
 
     print(palavra[0] + cifrada + seqInvertida[1:] + ultimaLetra + vogaisOuConsoantes)
-
-
-
-
